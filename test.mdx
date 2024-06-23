@@ -1,18 +1,13 @@
 ---
-title: 'Markdown and MDX Next.js'
-date: '2024-03-09'
-tags: ['next.js','mdx']
+title: "Markdown and MDX in Next.js"
+date: "2024-03-09"
+tags: ["next.js", "mdx"]
 ---
-Markdown is a lightweight markup language used to format text. It allows you to write using plain text syntax and convert it to structurally valid HTML. It's commonly used for writing content on websites and blogs.
-```ts
-const withMDX = require('@next/mdx')()
- 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Configure `pageExtensions` to include MDX files
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
-}
- 
-module.exports = withMDX(nextConfig)
-```
+
+# This is a heading
+
+This is some markdown content.
+
+```jsx
+// This is some JSX code
+const Component = () => <div>Hello MDX</div>;
