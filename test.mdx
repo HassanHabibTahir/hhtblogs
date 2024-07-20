@@ -31,8 +31,138 @@ Before you begin, make sure you have Node.js and npm installed on your machine. 
 
 First, let's create a new Next.js project. Open your terminal and run the following command:
 
-```bash
+\`\`\`bash
 npx create-next-app my-next-app
+\`\`\`
 
+This command will create a new directory called \`my-next-app\` with a basic Next.js setup.
+
+Next, navigate to the project directory:
+
+\`\`\`bash
+cd my-next-app
+\`\`\`
+
+Now, let's start the development server:
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+Open your browser and go to [http://localhost:3000](http://localhost:3000). You should see the default Next.js welcome page.
+
+## Creating a New Page
+
+In Next.js, pages are created by adding files to the \`pages\` directory. Let's create a new page called \`about.js\`.
+
+Create a new file \`about.js\` in the \`pages\` directory with the following content:
+
+\`\`\`javascript
+import React from 'react';
+
+const About = () => {
+  return (
+    <div>
+      <h1>About Us</h1>
+      <p>Welcome to the about page!</p>
+    </div>
+  );
+};
+
+export default About;
+\`\`\`
+
+Now, navigate to [http://localhost:3000/about](http://localhost:3000/about) in your browser. You should see the "About Us" page.
+
+## Styling Your Application
+
+Next.js supports various styling options including CSS, Sass, and CSS-in-JS libraries like styled-components. Let's add some basic CSS to our application.
+
+Create a new file \`styles/global.css\` with the following content:
+
+\`\`\`css
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+\`\`\`
+
+Then, import this CSS file in the \`pages/_app.js\` file:
+
+\`\`\`javascript
+import '../styles/global.css';
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
+\`\`\`
+
+Your application should now have some basic styling.
+
+## Fetching Data with getStaticProps
+
+One of the powerful features of Next.js is the ability to fetch data at build time using \`getStaticProps\`. Let's create a new page that fetches data from an external API.
+
+Create a new file \`pages/posts.js\` with the following content:
+
+\`\`\`javascript
+import React from 'react';
+
+export async function getStaticProps() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+const Posts = ({ posts }) => {
+  return (
+    <div>
+      <h1>Posts</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Posts;
+\`\`\`
+
+Now, navigate to [http://localhost:3000/posts](http://localhost:3000/posts) in your browser. You should see a list of posts fetched from the external API.
+
+## Conclusion
+
+In this tutorial, we've covered the basics of creating a Next.js application, adding new pages, styling your application, and fetching data with \`getStaticProps\`. Next.js is a versatile framework with many more features to explore, so be sure to check out the [official documentation](https://nextjs.org/docs) for more information.
+
+Happy coding!
 
 
