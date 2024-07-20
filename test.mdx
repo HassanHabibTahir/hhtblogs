@@ -31,23 +31,23 @@ Before you begin, make sure you have Node.js and npm installed on your machine. 
 
 First, let's create a new Next.js project. Open your terminal and run the following command:
 
-\`\`\`bash
+```bash
 npx create-next-app my-next-app
-\`\`\`
+```
 
 This command will create a new directory called \`my-next-app\` with a basic Next.js setup.
 
 Next, navigate to the project directory:
 
-\`\`\`bash
+```bash
 cd my-next-app
-\`\`\`
+```
 
 Now, let's start the development server:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 Open your browser and go to [http://localhost:3000](http://localhost:3000). You should see the default Next.js welcome page.
 
@@ -57,7 +57,7 @@ In Next.js, pages are created by adding files to the \`pages\` directory. Let's 
 
 Create a new file \`about.js\` in the \`pages\` directory with the following content:
 
-\`\`\`javascript
+```javascript
 import React from 'react';
 
 const About = () => {
@@ -70,7 +70,7 @@ const About = () => {
 };
 
 export default About;
-\`\`\`
+```
 
 Now, navigate to [http://localhost:3000/about](http://localhost:3000/about) in your browser. You should see the "About Us" page.
 
@@ -80,7 +80,7 @@ Next.js supports various styling options including CSS, Sass, and CSS-in-JS libr
 
 Create a new file \`styles/global.css\` with the following content:
 
-\`\`\`css
+```css
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -105,11 +105,11 @@ pre {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-\`\`\`
+```
 
 Then, import this CSS file in the \`pages/_app.js\` file:
 
-\`\`\`javascript
+```javascript
 import '../styles/global.css';
 
 function MyApp({ Component, pageProps }) {
@@ -117,7 +117,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-\`\`\`
+```
 
 Your application should now have some basic styling.
 
@@ -127,7 +127,7 @@ One of the powerful features of Next.js is the ability to fetch data at build ti
 
 Create a new file \`pages/posts.js\` with the following content:
 
-\`\`\`javascript
+```javascript
 import React from 'react';
 
 export async function getStaticProps() {
@@ -155,7 +155,7 @@ const Posts = ({ posts }) => {
 };
 
 export default Posts;
-\`\`\`
+```
 
 Now, navigate to [http://localhost:3000/posts](http://localhost:3000/posts) in your browser. You should see a list of posts fetched from the external API.
 
